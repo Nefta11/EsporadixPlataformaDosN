@@ -56,7 +56,7 @@ export default function LoginPage() {
                   
                   {/* Logo Image */}
                   <img 
-                    src="https://raw.githubusercontent.com/Nefta11/MiPortafolioNefta/refs/heads/main/assets/logo1.jpg"
+                    src="https://raw.githubusercontent.com/Nefta11/MiPortafolioNefta/main/assets/logo1.jpg"
                     alt="Logo"
                     className="w-full relative z-10 rounded-lg transform hover:scale-105 transition-transform duration-300"
                   />
