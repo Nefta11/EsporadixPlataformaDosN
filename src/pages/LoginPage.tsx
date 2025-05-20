@@ -1,124 +1,196 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Eye, EyeOff, Mail, Lock } from 'lucide-react';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
 
-    // Check credentials
-    if (email === 'admin' && password === '1234admin') {
-      navigate('/dashboard');
-    } else if (email === 'editor' && password === '1234editor') {
-      navigate('/dashboard/editor');
-    } else {
-      setError('Credenciales inválidas');
-    }
+    setTimeout(() => {
+      if (email === 'admin' && password === '1234admin') {
+        navigate('/dashboard');
+      } else if (email === 'editor' && password === '1234editor') {
+        navigate('/dashboard/editor');
+      } else {
+        setError('Credenciales inválidas');
+      }
+      setLoading(false);
+    }, 800);
   };
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center relative overflow-hidden">
-      {/* Enhanced Background Effects */}
-      <div className="absolute inset-0 bg-gradient-radial from-primary/5 to-transparent opacity-30"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-background to-background"></div>
-      
-      {/* Animated Stars Effect */}
-      <div className="absolute inset-0" style={{
-        backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)',
-        backgroundSize: '50px 50px'
-      }}></div>
+    <div className="min-h-screen flex items-center justify-center bg-[#0A0B14] relative overflow-hidden">
+      {/* Enhanced animated background shapes */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Large floating circles with continuous movement */}
+        <div
+          className="absolute w-[800px] h-[800px] bg-[#1A1F4D]/30 rounded-full -top-1/2 -left-1/4 blur-3xl"
+          style={{
+            animation: 'float 20s ease-in-out infinite, move-x 25s linear infinite',
+          }}
+        ></div>
+        <div
+          className="absolute w-[600px] h-[600px] bg-[#242957]/30 rounded-full -bottom-1/4 -right-1/4 blur-2xl"
+          style={{
+            animation: 'float 18s ease-in-out infinite 1s, move-y 22s linear infinite',
+          }}
+        ></div>
 
-      {/* Login Card */}
-      <div className="relative w-full max-w-md mx-4">
-        <div className="bg-background/80 rounded-2xl border border-primary/20 p-8 backdrop-blur-xl shadow-2xl relative overflow-hidden">
-          {/* Enhanced Glow Effects */}
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-20"></div>
-          <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/20 to-secondary/20 opacity-10 blur-xl"></div>
-          
-          {/* Content */}
-          <div className="relative">
-            {/* Logo Container */}
-            <div className="flex flex-col items-center mb-8">
-              <div className="w-64 relative mb-4">
-                {/* Logo Background Effects */}
-                <div className="absolute -inset-4 bg-primary/5 blur-2xl animate-pulse-slow"></div>
-                <div className="absolute -inset-2 bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 blur-lg"></div>
-                
-                {/* Logo Wrapper */}
-                <div className="relative bg-background/90 p-4 rounded-lg border border-primary/20 backdrop-blur-sm hover:border-primary/30 transition-all duration-300">
-                  {/* Shimmer Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent animate-shimmer rounded-lg"></div>
-                  
-                  {/* Logo Image */}
-                  <img 
-                    src="https://raw.githubusercontent.com/Nefta11/MiPortafolioNefta/main/assets/logo1.jpg"
-                    alt="Logo"
-                    className="w-full relative z-10 rounded-lg transform hover:scale-105 transition-transform duration-300"
-                  />
+        {/* Medium floating shapes */}
+        <div
+          className="absolute w-[500px] h-[500px] bg-[#2E346C]/30 rounded-full top-1/4 left-1/4 blur-xl"
+          style={{
+            animation: 'float 15s ease-in-out infinite 0.5s, move-x 20s linear infinite reverse',
+          }}
+        ></div>
+        <div
+          className="absolute w-[450px] h-[450px] bg-[#383E81]/30 rounded-full bottom-1/3 right-1/3 blur-xl"
+          style={{
+            animation: 'float 16s ease-in-out infinite 1.5s, move-y 18s linear infinite reverse',
+          }}
+        ></div>
 
-                  {/* Interactive Hover Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-primary/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
-                </div>
-              </div>
+        {/* Small accent shapes */}
+        <div
+          className="absolute w-[300px] h-[300px] bg-[#424896]/30 rounded-full top-1/3 right-1/4 blur-lg"
+          style={{
+            animation: 'float 12s ease-in-out infinite 1s, move-x 15s linear infinite',
+          }}
+        ></div>
+        <div
+          className="absolute w-[250px] h-[250px] bg-[#4C52AB]/30 rounded-full bottom-1/4 left-1/3 blur-lg"
+          style={{
+            animation: 'float 10s ease-in-out infinite 0.5s, move-y 12s linear infinite',
+          }}
+        ></div>
+      </div>
+
+      <div className="max-w-md w-full mx-4 relative">
+        {/* Card with matching transparency from image */}
+        <div className="bg-[#2A2E43]/60 backdrop-blur-md rounded-[10px] p-8 shadow-xl">
+          <div className="text-center mb-8">
+            {/* Larger logo with subtle animation */}
+            <div className="w-48 mx-auto mb-6 relative transition-all duration-500 hover:scale-105">
+              <img
+                src="https://raw.githubusercontent.com/Nefta11/MiPortafolioNefta/refs/heads/main/assets/logo1.jpg"
+                alt="Logo"
+                className="w-full rounded-lg"
+              />
             </div>
 
-            {/* Enhanced Form */}
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-4">
-                <div className="relative group">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/30 to-secondary/30 rounded-lg blur opacity-0 group-hover:opacity-20 transition duration-300"></div>
-                  <input
-                    type="text"
-                    placeholder="Usuario"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="relative w-full bg-background/90 border border-primary/20 rounded-lg px-4 py-3 text-gray-200 placeholder-gray-500 focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/40 transition-all duration-300 backdrop-blur-sm"
-                  />
-                </div>
-                <div className="relative group">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/30 to-secondary/30 rounded-lg blur opacity-0 group-hover:opacity-20 transition duration-300"></div>
-                  <input
-                    type="password"
-                    placeholder="Contraseña"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="relative w-full bg-background/90 border border-primary/20 rounded-lg px-4 py-3 text-gray-200 placeholder-gray-500 focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/40 transition-all duration-300 backdrop-blur-sm"
-                  />
-                </div>
-              </div>
-
-              {error && (
-                <div className="text-secondary text-sm text-center animate-fade-in">
-                  {error}
-                </div>
-              )}
-
-              <button
-                type="submit"
-                className="w-full bg-background hover:bg-primary/10 border border-primary/30 rounded-lg px-4 py-3 text-primary font-medium transition-all duration-300 relative group overflow-hidden backdrop-blur-sm"
-              >
-                <div className="absolute inset-0 bg-primary/10 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                <span className="relative text-neon">Iniciar Sesión</span>
-              </button>
-            </form>
-
-            {/* Enhanced Credentials Helper */}
-            <div className="mt-4 text-center space-y-2">
-              <p className="text-xs text-gray-500 hover:text-gray-400 transition-colors duration-300">
-                Administrador: <span className="text-primary">admin</span> | 
-                Contraseña: <span className="text-primary">1234admin</span>
-              </p>
-              <p className="text-xs text-gray-500 hover:text-gray-400 transition-colors duration-300">
-                Editor: <span className="text-primary">editor</span> | 
-                Contraseña: <span className="text-primary">1234editor</span>
-              </p>
-            </div>
+            <h2 className="text-2xl font-light text-white mb-2">Bienvenido de nuevo</h2>
+            <p className="text-gray-400">Inicia sesión para continuar</p>
           </div>
+
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="space-y-1">
+              <label className="text-sm font-medium text-gray-400" htmlFor="email">
+                Usuario
+              </label>
+              <div className="relative group">
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+                <input
+                  id="email"
+                  type="text"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full bg-[#2A2E43]/40 border border-gray-600/30 text-white rounded-lg px-10 py-3 
+                    focus:outline-none focus:border-gray-500/50
+                    transition-all duration-300 ease-in-out placeholder-gray-500
+                    hover:border-gray-500/50"
+                  placeholder="Ingresa tu usuario"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-1">
+              <label className="text-sm font-medium text-gray-400" htmlFor="password">
+                Contraseña
+              </label>
+              <div className="relative group">
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+                <input
+                  id="password"
+                  type={showPassword ? 'text' : 'password'}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full bg-[#2A2E43]/40 border border-gray-600/30 text-white rounded-lg px-10 py-3
+                    focus:outline-none focus:border-gray-500/50
+                    transition-all duration-300 ease-in-out placeholder-gray-500
+                    hover:border-gray-500/50"
+                  placeholder="Ingresa tu contraseña"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+                >
+                  {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                </button>
+              </div>
+            </div>
+
+            {error && (
+              <div className="text-rose-300 text-sm text-center animate-fade-in">
+                {error}
+              </div>
+            )}
+
+            <div className="flex items-center justify-between">
+              <label className="flex items-center gap-2 group cursor-pointer">
+                <input
+                  type="checkbox"
+                  className="w-4 h-4 rounded border-gray-600/30 bg-[#2A2E43]/40 text-gray-600
+                    focus:ring-0 focus:ring-offset-0 
+                    transition-colors group-hover:border-gray-500/50"
+                />
+                <span className="text-sm text-gray-400 group-hover:text-white transition-colors">Recordarme</span>
+              </label>
+              <button
+                type="button"
+                className="text-sm text-gray-400 hover:text-white transition-colors"
+              >
+                ¿Olvidaste tu contraseña?
+              </button>
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-[#2A2E43]/80 hover:bg-[#2A2E43] text-white rounded-lg py-3 font-medium
+                transition-all duration-300 ease-in-out
+                disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {loading ? (
+                <div className="flex items-center justify-center gap-2">
+                  <div className="w-5 h-5 border-2 border-gray-600/30 border-t-white rounded-full animate-spin"></div>
+                  <span>Iniciando sesión...</span>
+                </div>
+              ) : (
+                'Iniciar sesión'
+              )}
+            </button>
+
+            <div className="mt-4 text-center space-y-2">
+              <p className="text-xs text-gray-400">
+                Administrador: <span className="text-white">admin</span> |
+                Contraseña: <span className="text-white">1234admin</span>
+              </p>
+              <p className="text-xs text-gray-400">
+                Editor: <span className="text-white">editor</span> |
+                Contraseña: <span className="text-white">1234editor</span>
+              </p>
+            </div>
+          </form>
         </div>
       </div>
     </div>
