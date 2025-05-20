@@ -47,14 +47,18 @@ export default {
         shimmer: "shimmer 2s linear infinite",
         "gradient-x": "gradient-x 15s ease infinite",
         "move-x": "move-x 20s linear infinite",
+        "move-x-slow": "move-x 30s linear infinite",
+        "move-x-fast": "move-x 10s linear infinite",
         "move-y": "move-y 20s linear infinite",
+        "move-y-slow": "move-y 30s linear infinite",
+        "move-y-fast": "move-y 10s linear infinite",
       },
       keyframes: {
         float: {
           "0%, 100%": { transform: "translate(0, 0)" },
-          "25%": { transform: "translate(25px, -25px)" },
-          "50%": { transform: "translate(0, -50px)" },
-          "75%": { transform: "translate(-25px, -25px)" },
+          "25%": { transform: "translate(50px, -50px)" },
+          "50%": { transform: "translate(0, -100px)" },
+          "75%": { transform: "translate(-50px, -50px)" },
         },
         shimmer: {
           "0%": { transform: "translateX(-100%)" },
@@ -72,11 +76,11 @@ export default {
         },
         "move-x": {
           "0%, 100%": { transform: "translateX(0)" },
-          "50%": { transform: "translateX(100px)" },
+          "50%": { transform: "translateX(600px)" },
         },
         "move-y": {
           "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(100px)" },
+          "50%": { transform: "translateY(600px)" },
         },
       },
       backgroundImage: {

@@ -33,44 +33,26 @@ export default function LoginPage() {
       <div className="absolute inset-0 overflow-hidden">
         {/* Large floating circles with continuous movement */}
         <div
-          className="absolute w-[800px] h-[800px] bg-[#1A1F4D]/30 rounded-full -top-1/2 -left-1/4 blur-3xl"
-          style={{
-            animation: 'float 20s ease-in-out infinite, move-x 25s linear infinite',
-          }}
+          className="absolute w-[800px] h-[800px] bg-[#1A1F4D]/30 rounded-full -top-1/2 -left-1/4 blur-3xl animate-float animate-move-x-slow"
         ></div>
         <div
-          className="absolute w-[600px] h-[600px] bg-[#242957]/30 rounded-full -bottom-1/4 -right-1/4 blur-2xl"
-          style={{
-            animation: 'float 18s ease-in-out infinite 1s, move-y 22s linear infinite',
-          }}
+          className="absolute w-[600px] h-[600px] bg-[#242957]/30 rounded-full -bottom-1/4 -right-1/4 blur-2xl animate-float animate-move-y-fast"
         ></div>
 
         {/* Medium floating shapes */}
         <div
-          className="absolute w-[500px] h-[500px] bg-[#2E346C]/30 rounded-full top-1/4 left-1/4 blur-xl"
-          style={{
-            animation: 'float 15s ease-in-out infinite 0.5s, move-x 20s linear infinite reverse',
-          }}
+          className="absolute w-[500px] h-[500px] bg-[#2E346C]/30 rounded-full top-1/4 left-1/4 blur-xl animate-float animate-move-x-fast"
         ></div>
         <div
-          className="absolute w-[450px] h-[450px] bg-[#383E81]/30 rounded-full bottom-1/3 right-1/3 blur-xl"
-          style={{
-            animation: 'float 16s ease-in-out infinite 1.5s, move-y 18s linear infinite reverse',
-          }}
+          className="absolute w-[450px] h-[450px] bg-[#383E81]/30 rounded-full bottom-1/3 right-1/3 blur-xl animate-float animate-move-y-slow"
         ></div>
 
         {/* Small accent shapes */}
         <div
-          className="absolute w-[300px] h-[300px] bg-[#424896]/30 rounded-full top-1/3 right-1/4 blur-lg"
-          style={{
-            animation: 'float 12s ease-in-out infinite 1s, move-x 15s linear infinite',
-          }}
+          className="absolute w-[300px] h-[300px] bg-[#424896]/30 rounded-full top-1/3 right-1/4 blur-lg animate-float animate-move-x"
         ></div>
         <div
-          className="absolute w-[250px] h-[250px] bg-[#4C52AB]/30 rounded-full bottom-1/4 left-1/3 blur-lg"
-          style={{
-            animation: 'float 10s ease-in-out infinite 0.5s, move-y 12s linear infinite',
-          }}
+          className="absolute w-[250px] h-[250px] bg-[#4C52AB]/30 rounded-full bottom-1/4 left-1/3 blur-lg animate-float animate-move-y"
         ></div>
       </div>
 
