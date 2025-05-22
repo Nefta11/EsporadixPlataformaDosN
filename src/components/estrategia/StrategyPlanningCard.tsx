@@ -36,7 +36,7 @@ export default function StrategyPlanningCard() {
                 />
               </div>
               <h4 className="text-white font-medium text-center">Manfred Reyes Villa</h4>
-              <p className="text-sm text-gray-400 text-center">Candidato a la Alcaldía</p>
+              <p className="text-sm text-gray-400 text-center">Bolivia</p>
             </div>
           </div>
 
